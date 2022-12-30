@@ -1,0 +1,60 @@
+.tabs {
+  --_columns: 1;
+
+  display: grid;
+  grid-template-columns: repeat(var(--_columns), minmax(0, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 3.125rem;
+  
+  & .tab {
+    --_border: var(--clr-primary-100);
+
+    position: relative;
+    padding: 1rem 2.5rem;
+    border: solid 1px var(--_border);
+    border-radius: 1rem;
+    text-decoration: none;
+
+    &__label {
+      font-size: 1.25rem;
+      font-weight: 600;
+      line-height: 1.335;
+
+      &--small {
+        margin-bottom: 0.28rem;
+        font-size: 0.75rem;
+        font-weight: 400;
+        line-height: 1.21;
+      }
+    }
+
+    &.active {
+      --_border: var(--clr-primary-500);
+
+      color: var(--clr-primary-500);
+    }
+
+    &__icon {
+      position: absolute;
+      top: 0.8125rem;
+      right: 1rem;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .tabs {
+    --_columns: 3;
+
+    gap: 1.875rem;
+    margin-bottom: 1.875rem;
+
+    & .tab {
+      padding: 1.43rem 1.9rem;
+
+      &__icon {
+        top: 1rem;
+      }
+    }
+  }
+}

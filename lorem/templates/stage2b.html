@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+{% block form %}
+
+<form action="." method="post" class="form">
+    {% csrf_token %}
+    <div class="form__wrapper">
+        <p class="mb-4 semibold">
+            Sequi quaerat, vitae pariatur veniam officiis quam rem architecto.
+        </p>
+
+        <div class="grid grid-columns-1 lg:grid-columns-2 col-gap-6 row-gap-3">
+            <div>
+                <div class="form__group--inline">
+                    <label for="{{ form.radio2_field.id_for_label }}" class="form__label">
+                        Lorem ipsum
+                    </label>
+                    {% render_field form.radio2_field class+="form__control row" %}
+                </div>
+            {% if form.radio2_field.errors %}
+                {% for error in form.radio2_field.errors %}
+                <p class="form__warning">
+                    {{ error }}
+                </p>
+                {% endfor %}
+            {% endif %}
+            </div>
+        </div>
+
+        <div class="flex gap-4 mt-4">
+            {% if previous %}
+            <a href="?p={{ previous }}" class="btn btn--primary">Previous</a>
+            {% endif %}
+    
+            <button type="submit" class="btn btn--primary">Next</button>
+        </div>
+    </div>
+</form>
+{% endblock %}

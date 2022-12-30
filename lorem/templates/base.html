@@ -1,0 +1,27 @@
+{% load multipage_form_tags %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Openscoring Form</title>
+        
+        <link rel="stylesheet" href="{% static 'css/main.css' %}" defer>
+        <script src="{% static 'js/main.js' %}" defer></script>
+        {{ form.media }}
+    </head>
+    <body>
+        {% block content %}
+        <main>
+            <div class="container">
+                <h1 class="mb-2">Lorem ipsum</h1>
+                <p class="mb-6">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+    
+                {% include "navigation.html" %}
+            </div>
+        
+            {% block form %}
+            {% endblock %}         
+        </main>
+        {% endblock %}
+    </body>
+</html>

@@ -1,0 +1,34 @@
+[tool.poetry]
+name = "openscoring-forms"
+version = "1.0.0"
+description = "Openscoring Forms"
+homepage = "https://github.com/vdisain/openscoring-forms"
+readme = "README.md"
+authors = ["Web Design Agency OÜ <info@vdisain.e>"]
+maintainers = ["Web Design Agency OÜ <info@vdisain.e>"]
+license = "MIT"
+classifiers=[
+    "Programming Language :: Python :: 3.4",
+    "Programming Language :: Python :: 3.5",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Framework :: Django",
+    "Framework :: Django :: 3.2",
+    "Framework :: Django :: 4.0",
+]
+include = [
+    "LICENSE",
+    "CHANGELOG.md",
+]
+
+[tool.poetry.dependencies]
+python = ">=3.6"
+Django = "3.2.13"
+multipage-form = {git = "https://github.com/ImaginaryLandscape/django-multipage-form.git", branch = "main"}
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

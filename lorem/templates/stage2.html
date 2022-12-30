@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+{% block form %}
+
+<form action="." method="post" class="form">
+    {% csrf_token %}
+    <div class="form__wrapper">
+        <h2 class="mb-5">
+            Delectus, optio.
+        </h2>
+
+        <div class="grid grid-columns-1 lg:grid-columns-2 col-gap-6 row-gap-3">
+            <div class="form__group">
+                <label for="{{ form.select_field.id_for_label }}" class="form__label">
+                    Lorem ipsum
+                </label>
+                {% render_field form.select_field class+="form__control" %}
+            </div>
+        {% if form.select_field.errors %}
+            {% for error in form.select.errors %}
+            <p class="message message--warning">
+                {{ error }}
+            </p>
+            {% endfor %}
+        {% endif %}
+
+            <div class="form__group">
+                <label for="{{ form.number_field.id_for_label }}" class="form__label">
+                    Lorem ipsum
+                </label>
+                {% render_field form.number_field class+="form__control" %}
+            </div>
+
+            <div class="form__group{% if form.email.errors %} invalid{% endif %}">
+                <label for="{{ form.email.id_for_label }}" class="form__label">
+                    Lorem ipsum
+                </label>
+                {% render_field form.email class+="form__control" %}
+
+                {% if form.email.errors %}
+                    {% for error in form.email.errors %}
+                    <p class="form__warning">
+                        {{ error }}
+                    </p>
+                    {% endfor %}
+                {% endif %}
+            </div>
+
+            <div class="form__group--inline lg:col-span-2">
+                {% render_field form.checkbox_field class+="form__control" %}
+                <label for="{{ form.checkbox_field.id_for_label }}" class="form__label">
+                    Lorem ipsum
+                </label>
+            </div>
+        </div>
+
+        <div class="mt-4">
+            {% if previous %}
+            <a href="?p={{ previous }}" class="btn btn--primary">Previous</a>
+            {% endif %}
+    
+            <button type="submit" class="btn btn--primary">Next</button>
+        </div>
+    </div>
+</form>
+{% endblock %}

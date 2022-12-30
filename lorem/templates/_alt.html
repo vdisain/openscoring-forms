@@ -1,0 +1,8 @@
+{% for control in form %}
+<div class="form__group{% if control.field.widget.attrs.fullwidth %} col-span-2{% endif %}">
+    <label for="{{ control.id_for_label }}" class="form__label">
+        {{ control.label }}
+    </label>
+    {% render_field control class+="form__control" %}
+</div>
+{% endfor %}
